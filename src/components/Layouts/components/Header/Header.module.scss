@@ -41,7 +41,7 @@
     caret-color: var(--primary);
   }
 
-  input:not(:placeholder-shown) ~ .search-btn{
+  input:not(:placeholder-shown) ~ .search-btn {
     color: rgba(22, 24, 35, 0.75);
   }
 
@@ -55,18 +55,18 @@
     background-color: rgba(22, 24, 35, 0.12);
   }
 
-  &:focus-within{
-      border: 1.5px solid rgba(22, 24, 35, 0.2);
+  &:focus-within {
+    border: 1.5px solid rgba(22, 24, 35, 0.2);
   }
 }
 
-.clear ,
+.clear,
 .loading {
-    position: absolute;
-    right: calc(var(--search-button-width) + 16px);
-    top: 50%;
-    transform: translateY(-50%);
-    color: rgba(22, 24, 35, 0.34);
+  position: absolute;
+  right: calc(var(--search-button-width) + 16px);
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(22, 24, 35, 0.34);
 }
 
 .search-btn {
