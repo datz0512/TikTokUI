@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faSpinner, faSearch, faSignIn } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 
-import {Wrapper as PopperWrapper} from '~/components/Popper';
+import Button from '~/components/Button';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
 import classes from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
@@ -16,9 +17,9 @@ const Header = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      setSearchReasult([])
-    },0)
-  }, [])
+      setSearchReasult([]);
+    }, 0);
+  }, []);
 
   return (
     <header className={cx('wrapper')}>
@@ -29,16 +30,14 @@ const Header = () => {
           visible={searchResult.length > 0}
           render={(attrs) => (
             <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                  <PopperWrapper>
-                    <h4 className={cx('search-title')}>
-                      Accounts
-                    </h4>
-                    <AccountItem />
-                    <AccountItem />
-                    <AccountItem />
-                    <AccountItem />
-                  </PopperWrapper>
-                </div>
+              <PopperWrapper>
+                <h4 className={cx('search-title')}>Accounts</h4>
+                <AccountItem />
+                <AccountItem />
+                <AccountItem />
+                <AccountItem />
+              </PopperWrapper>
+            </div>
           )}
         >
           <div className={cx('search')}>
@@ -52,7 +51,12 @@ const Header = () => {
             </button>
           </div>
         </Tippy>
-        <div className={cx('actions')} />
+        <div className={cx('actions')}>
+          <Button text>Upload</Button>
+          <Button primary>
+            Log in
+          </Button>
+        </div>
       </div>
     </header>
   );
