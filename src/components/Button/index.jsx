@@ -27,6 +27,7 @@ const Button = ({
     onClick,
     ...passProps,
   };
+
   // Remove event listener when disabled
   if (disabled) {
     Object.keys(props).forEach((key) => {
