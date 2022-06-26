@@ -9,8 +9,16 @@ import {
   faEarthAsia,
   faCircleQuestion,
   faKeyboard,
+  faCloudUpload,
+  faGear,
+  faArrowRightToBracket,
 } from '@fortawesome/free-solid-svg-icons';
-import Tippy from '@tippyjs/react/headless';
+
+import { faMessage, faPaperPlane, faUser } from '@fortawesome/free-regular-svg-icons';
+import { faCreativeCommonsRemix } from '@fortawesome/free-brands-svg-icons';
+import Tippy from '@tippyjs/react';
+import HeadlessTippy from '@tippyjs/react/headless';
+import 'tippy.js/dist/tippy.css';
 
 import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -30,14 +38,14 @@ const MENU_ITEMS = [
       data: [
         {
           code: 'en',
-          title: 'English'
+          title: 'English',
         },
         {
           code: 'vi',
-          title: 'Vietnamese'
+          title: 'Vietnamese',
         },
-      ]
-    }    
+      ],
+    },
   },
   {
     icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -52,6 +60,7 @@ const MENU_ITEMS = [
 
 const Header = () => {
   const [searchResult, setSearchReasult] = useState([]);
+  const currentUser = true;
 
   useEffect(() => {
     setTimeout(() => {
@@ -59,11 +68,38 @@ const Header = () => {
     }, 0);
   }, []);
 
+  const userMenu = [
+    {
+      icon: <FontAwesomeIcon icon={faUser} />,
+      title: 'View profile',
+      to: '/feedback',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faCreativeCommonsRemix} />,
+      title: 'Get coins',
+      to: '/feedback',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faGear} />,
+      title: 'Settings',
+      to: '/feedback',
+    },
+    ...MENU_ITEMS,
+    {
+      icon: <FontAwesomeIcon icon={faArrowRightToBracket} />,
+      title: 'Log out',
+      to: '/feedback',
+      separate: true,
+    },
+  ];
+
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
         <img src={images.logo} alt="tiktok" />
-        <Tippy
+
+        {/* Search */}
+        <HeadlessTippy
           interactive
           visible={searchResult.length > 0}
           render={(attrs) => (
@@ -88,15 +124,45 @@ const Header = () => {
               <FontAwesomeIcon icon={faSearch} />
             </button>
           </div>
-        </Tippy>
-        <div className={cx('actions')}>
-          <Button text>Upload</Button>
-          <Button primary>Log in</Button>
+        </HeadlessTippy>
 
-          <Menu items={MENU_ITEMS}>
-            <button className={cx('more-btn')}>
-              <FontAwesomeIcon icon={faEllipsisVertical} />
-            </button>
+        <div className={cx('actions')}>
+          {currentUser ? (
+            <>
+              <Tippy content="Upload video" placement="bottom">
+                <button className={cx('action-btn')}>
+                  <FontAwesomeIcon icon={faCloudUpload} />
+                </button>
+              </Tippy>
+              <Tippy content="Message" placement="bottom">
+                <button className={cx('action-btn')}>
+                  <FontAwesomeIcon icon={faPaperPlane} />
+                </button>
+              </Tippy>
+              <Tippy content="Inbox" placement="bottom">
+                <button className={cx('action-btn')}>
+                  <FontAwesomeIcon icon={faMessage} />
+                </button>
+              </Tippy>
+            </>
+          ) : (
+            <>
+              <Button text>Upload</Button>
+              <Button primary>Log in</Button>
+            </>
+          )}
+          <Menu items={currentUser ? userMenu : MENU_ITEMS}>
+            {currentUser ? (
+              <img
+                className={cx('user-avatar')}
+                src="https://kenh14cdn.com/thumb_w/660/2020/5/28/0-1590653959375414280410.jpg"
+                alt="hotgirl"
+              ></img>
+            ) : (
+              <button className={cx('more-btn')}>
+                <FontAwesomeIcon icon={faEllipsisVertical} />
+              </button>
+            )}
           </Menu>
         </div>
       </div>

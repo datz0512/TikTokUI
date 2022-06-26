@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
+
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import MenuItem from './MenuItem';
 import Header from './Header';
 import classes from './Menu.module.scss';
-import { useState } from 'react';
 
 const cx = classNames.bind(classes);
 
@@ -33,7 +34,7 @@ const Menu = ({ children, items = [] }) => {
   return (
     <Tippy
       interactive
-      visible
+      // visible
       delay={[0, 600]}
       placement="bottom-end"
       render={(attrs) => (
@@ -46,6 +47,7 @@ const Menu = ({ children, items = [] }) => {
           </PopperWrapper>
         </div>
       )}
+      onHide={() => setHistory([{ data: items }])}
     >
       {children}
     </Tippy>
