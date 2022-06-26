@@ -35,14 +35,20 @@ const Menu = ({ children, items = [] }) => {
     <Tippy
       interactive
       // visible
-      delay={[0, 600]}
+      delay={[0, 500]}
+      offset={[16, 8]}
       placement="bottom-end"
       render={(attrs) => (
         <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
           <PopperWrapper className={cx('menu-popper')}>
-            {history.length > 1 && <Header title="Languages" onBack={() => {
-              setHistory(history.slice(0, -1));
-            }}/>}
+            {history.length > 1 && (
+              <Header
+                title="Languages"
+                onBack={() => {
+                  setHistory(history.slice(0, -1));
+                }}
+              />
+            )}
             {renderItems()}
           </PopperWrapper>
         </div>
