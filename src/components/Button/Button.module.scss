@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   min-width: 100px;
-  padding: 7px 16px;
+  padding: 9.5px 16px;
   border-radius: 4px;
   font-size: 1.6rem;
   font-family: 'ProximaNova', sans-serif;
@@ -30,7 +30,8 @@
 }
 
 .icon {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   width: 24px;
   text-align: center;
 }

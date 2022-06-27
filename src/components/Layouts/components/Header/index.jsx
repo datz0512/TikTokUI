@@ -11,6 +11,7 @@ import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
 import {
+  Analytics,
   Feedback,
   GetCoin,
   InboxIcon,
@@ -24,6 +25,7 @@ import {
   UploadIcon,
   ViewProfile,
 } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(classes);
 
@@ -48,7 +50,7 @@ const MENU_ITEMS = [
   {
     icon: <Feedback />,
     title: 'Feedback and help',
-    to: '/feedback',
+    // to: '/feedback',
   },
   {
     icon: <Keyboard />,
@@ -70,23 +72,23 @@ const Header = () => {
     {
       icon: <ViewProfile />,
       title: 'View profile',
-      to: '/feedback',
     },
     {
       icon: <GetCoin />,
       title: 'Get coins',
-      to: '/feedback',
+    },
+    {
+      icon: <Analytics />,
+      title: 'View Analytics',
     },
     {
       icon: <Settings />,
       title: 'Settings',
-      to: '/feedback',
     },
     ...MENU_ITEMS,
     {
       icon: <Logout />,
       title: 'Log out',
-      to: '/feedback',
       separate: true,
     },
   ];
@@ -98,6 +100,7 @@ const Header = () => {
         {/* Search */}
         <HeadlessTippy
           interactive
+          // visible
           visible={searchResult.length > 0}
           render={(attrs) => (
             <div className={cx('search-result')} tabIndex="-1" {...attrs}>
@@ -153,11 +156,12 @@ const Header = () => {
           )}
           <Menu items={currentUser ? userMenu : MENU_ITEMS}>
             {currentUser ? (
-              <img
+              <Image
                 className={cx('user-avatar')}
-                src="https://kenh14cdn.com/thumb_w/660/2020/5/28/0-1590653959375414280410.jpg"
+                src="https://nghethuat365.com/wp-content/uploads/2021/06/Gai-xxinh-nguc-khung.jpg"
                 alt="hotgirl"
-              ></img>
+                fallback="https://kenh14cdn.com/thumb_w/660/2020/5/28/0-1590653959375414280410.jpg"
+              />
             ) : (
               <button className={cx('more-btn')}>
                 <MoreBtn />
