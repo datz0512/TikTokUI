@@ -1,14 +1,10 @@
-import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react';
-import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 
 import Button from '~/components/Button';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
 import classes from './Header.module.scss';
 import images from '~/assets/images';
-import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
 import {
   Analytics,
@@ -20,12 +16,12 @@ import {
   Logout,
   MessageIcon,
   MoreBtn,
-  SearchIcon,
   Settings,
   UploadIcon,
   ViewProfile,
 } from '~/components/Icons';
 import Image from '~/components/Image';
+import Search from '../Search';
 
 const cx = classNames.bind(classes);
 
@@ -58,85 +54,49 @@ const MENU_ITEMS = [
   },
 ];
 
+const userMenu = [
+  {
+    icon: <ViewProfile />,
+    title: 'View profile',
+  },
+  {
+    icon: <GetCoin />,
+    title: 'Get coins',
+  },
+  {
+    icon: <Analytics />,
+    title: 'View Analytics',
+  },
+  {
+    icon: <Settings />,
+    title: 'Settings',
+  },
+  ...MENU_ITEMS,
+  {
+    icon: <Logout />,
+    title: 'Log out',
+    separate: true,
+  },
+];
+
 const Header = () => {
-  const [searchResult, setSearchReasult] = useState([]);
-  const currentUser = true;
-
-  useEffect(() => {
-    setTimeout(() => {
-      setSearchReasult([]);
-    }, 0);
-  }, []);
-
-  const userMenu = [
-    {
-      icon: <ViewProfile />,
-      title: 'View profile',
-    },
-    {
-      icon: <GetCoin />,
-      title: 'Get coins',
-    },
-    {
-      icon: <Analytics />,
-      title: 'View Analytics',
-    },
-    {
-      icon: <Settings />,
-      title: 'Settings',
-    },
-    ...MENU_ITEMS,
-    {
-      icon: <Logout />,
-      title: 'Log out',
-      separate: true,
-    },
-  ];
+  const currentUser = 1;
 
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
         <img src={images.logo} alt="tiktok" />
         {/* Search */}
-        <HeadlessTippy
-          interactive
-          // visible
-          visible={searchResult.length > 0}
-          render={(attrs) => (
-            <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-              <PopperWrapper>
-                <h4 className={cx('search-title')}>Accounts</h4>
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-              </PopperWrapper>
-            </div>
-          )}
-        >
-          <div className={cx('search')}>
-            <input placeholder="Searchs accounts and videos" spellCheck={false} />
-            <button className={cx('clear')}>
-              {/* <FontAwesomeIcon icon={faCircleXmark} /> */}
-            </button>
-            {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
-            <button className={cx('search-btn')}>
-              <SearchIcon />
-            </button>
-          </div>
-        </HeadlessTippy>
-
+        <Search />
         {/* Actions */}
         <div className={cx('actions')}>
           {currentUser ? (
             <>
-              <Tippy content="Upload video" placement="bottom">
-                <button className={cx('action-btn')}>
-                  <UploadIcon />
-                </button>
-              </Tippy>
+              <Button leftIcon={<UploadIcon />} outline upload>
+                Upload
+              </Button>
               <Tippy content="Message" placement="bottom">
-                <button className={cx('action-btn')}>
+                <button className={cx('action-btn', 'message')}>
                   <MessageIcon />
                 </button>
               </Tippy>
@@ -148,7 +108,7 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Button className={cx('upload')} text>
+              <Button leftIcon={<UploadIcon />} outline upload>
                 Upload
               </Button>
               <Button primary>Log in</Button>
