@@ -70,6 +70,19 @@
   color: rgba(22, 24, 35, 0.34);
 }
 
+.loading {
+  animation: 1s linear 0s infinite spinner;
+}
+
+@keyframes spinner {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
 .search-btn {
   display: flex;
   align-items: center;
