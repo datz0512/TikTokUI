@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 
-import * as request from '~/utils/request';
+import * as searchServices from '~/apiServices/SearchServices';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { ClearSearch, Loading, SearchIcon } from '~/components/Icons';
 import AccountItem from '~/components/AccountItem';
@@ -27,38 +27,16 @@ const Search = () => {
             return;
         }
 
-        setLoading(true);
-
         const fetchApi = async () => {
-            try {
-                const res = await request.get(`users/search`, {
-                    params: {
-                        q: debounced,
-                        type: 'less',
-                    },
-                });
-                setSearchResult(res.data);
-                setLoading(false);
-            } catch (error) {
-                setLoading(false);
-            }
-        };
-        fetchApi();
+            setLoading(true);
 
-        // request
-        //     .get(`users/search`, {
-        //         params: {
-        //             q: debounced,
-        //             type: 'less',
-        //         },
-        //     })
-        //     .then((res) => {
-        //         setSearchResult(res.data);
-        //         setLoading(false);
-        //     })
-        //     .catch(() => {
-        //         setLoading(false);
-        //     });
+            const result = await searchServices.search(debounced);
+            setSearchResult(result);
+
+            setLoading(false);
+        };
+
+        fetchApi();
     }, [debounced]);
 
     const handleClear = () => {
