@@ -1,10 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
+import axios from 'axios';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { ClearSearch, Loading, SearchIcon } from '~/components/Icons';
 import AccountItem from '~/components/AccountItem';
+import { useDebounce } from '~/hooks';
 import classes from './Search.module.scss';
 
 const cx = classNames.bind(classes);
@@ -15,30 +17,33 @@ const Search = () => {
   const [showResult, setShowResult] = useState(true);
   const [loading, setLoading] = useState(false);
 
+  const debounced = useDebounce(searchValue, 500);
+
   const inputRef = useRef();
 
   useEffect(() => {
-    if (!searchValue.trim()) {
+    if (!debounced.trim()) {
       setSearchResult([]);
       return;
     }
 
     setLoading(true);
 
-    fetch(
-      `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-        searchValue,
-      )}&type=less`,
-    )
-      .then((res) => res.json())
+    axios
+      .get(`https://tiktok.fullstack.edu.vn/api/users/search`, {
+        params: {
+          q: debounced,
+          type: 'less',
+        },
+      })
       .then((res) => {
-        setSearchResult(res.data);
+        setSearchResult(res.data.data);
         setLoading(false);
       })
       .catch(() => {
         setLoading(false);
       });
-  }, [searchValue]);
+  }, [debounced]);
 
   const handleClear = () => {
     setSearchValue('');
