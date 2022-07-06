@@ -34,7 +34,7 @@ const Menu = ({ children, items = [], hideOnClick = false }) => {
     return (
         <Tippy
             interactive
-            visible
+            // visible
             delay={[0, 500]}
             offset={[16, 8]}
             hideOnClick={hideOnClick}

@@ -43,140 +43,140 @@ const MENU_ITEMS = [
                     title: 'Vietnamese',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: 'العربية',
+                    title: 'العربية',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: 'বাঙ্গালি (ভারত)',
+                    title: 'বাঙ্গালি (ভারত)',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: 'Cebuano (Pilipinas)',
+                    title: 'Cebuano (Pilipinas)',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: 'Čeština (Česká republika)',
+                    title: 'Čeština (Česká republika)',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: 'Deutsch',
+                    title: 'Deutsch',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: 'Ελληνικά (Ελλάδα)',
+                    title: 'Ελληνικά (Ελλάδα)',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: 'Español',
+                    title: 'Español',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: 'Suomi (Suomi)',
+                    title: 'Suomi (Suomi)',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: 'Filipino (Pilipinas)',
+                    title: 'Filipino (Pilipinas)',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: 'Français',
+                    title: 'Français',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: 'עברית (ישראל)',
+                    title: 'עברית (ישראל)',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: 'हिंदी',
+                    title: 'हिंदी',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: 'Magyar (Magyarország)',
+                    title: 'Magyar (Magyarország)',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: 'Bahasa Indonesia (Indonesia)',
+                    title: 'Bahasa Indonesia (Indonesia)',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: 'Italiano (Italia)',
+                    title: 'Italiano (Italia)',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: '日本語（日本）',
+                    title: '日本語（日本）',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: 'Basa Jawa (Indonesia)',
+                    title: 'Basa Jawa (Indonesia)',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: 'ខ្មែរ (កម្ពុជា)',
+                    title: 'ខ្មែរ (កម្ពុជា)',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: '한국어 (대한민국)',
+                    title: '한국어 (대한민국)',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: 'Bahasa Melayu (Malaysia)',
+                    title: 'Bahasa Melayu (Malaysia)',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: 'မြန်မာ (မြန်မာ)',
+                    title: 'မြန်မာ (မြန်မာ)',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: 'Nederlands (Nederland)',
+                    title: 'Nederlands (Nederland)',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: 'Polski (Polska)',
+                    title: 'Polski (Polska)',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: 'Português (Brasil)',
+                    title: 'Português (Brasil)',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: 'Română (Romania)',
+                    title: 'Română (Romania)',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: 'Русский (Россия)',
+                    title: 'Русский (Россия)',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: 'Svenska (Sverige)',
+                    title: 'Svenska (Sverige)',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: 'ไทย (ไทย)',
+                    title: 'ไทย (ไทย)',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: 'Türkçe (Türkiye)',
+                    title: 'Türkçe (Türkiye)',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: 'Українська (Україна)',
+                    title: 'Українська (Україна)',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: 'اردو',
+                    title: 'اردو',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: 'Tiếng Việt (Việt Nam)',
+                    title: 'Tiếng Việt (Việt Nam)',
                 },
                 {
-                    code: 'en',
-                    title: 'English',
+                    code: '简体中文',
+                    title: '简体中文',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
+                    code: '繁體中文',
+                    title: '繁體中文',
                 },
             ],
         },
@@ -238,13 +238,15 @@ const Header = () => {
                                 Upload
                             </Button>
                             <Tippy content="Message" placement="bottom">
-                                <button className={cx('action-btn', 'message')}>
+                                <button className={cx('message', 'action-btn')}>
                                     <MessageIcon />
+                                    <span className={cx('badge')}>4</span>
                                 </button>
                             </Tippy>
                             <Tippy content="Inbox" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <InboxIcon />
+                                    <span className={cx('badge')}>1</span>
                                 </button>
                             </Tippy>
                         </>
