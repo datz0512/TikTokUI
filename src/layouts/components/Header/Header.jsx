@@ -252,7 +252,7 @@ const Header = () => {
                         </>
                     ) : (
                         <>
-                            <Button leftIcon={<UploadIcon />} outline upload>
+                            <Button leftIcon={<UploadIcon />} upload>
                                 Upload
                             </Button>
                             <Button primary>Log in</Button>
