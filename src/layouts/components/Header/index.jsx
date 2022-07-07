@@ -32,7 +32,7 @@ const MENU_ITEMS = [
         icon: <Languages />,
         title: 'English',
         children: {
-            title: 'Languages',
+            title: 'Language',
             data: [
                 {
                     code: 'en',

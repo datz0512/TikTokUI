@@ -27,7 +27,7 @@ const AccountItem = ({ data }) => {
 };
 
 AccountItem.propTypes = {
-    data: PropsTypes.object,
+    data: PropsTypes.object.isRequired,
 };
 
 export default AccountItem;
