@@ -1,4 +1,5 @@
 import config from '~/config';
+
 //Layout
 import { HeaderOnly } from '~/layouts';
 
