@@ -39,10 +39,6 @@ const MENU_ITEMS = [
                     title: 'English',
                 },
                 {
-                    code: 'vi',
-                    title: 'Vietnamese',
-                },
-                {
                     code: 'العربية',
                     title: 'العربية',
                 },
